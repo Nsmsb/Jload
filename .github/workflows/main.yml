@@ -1,0 +1,29 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Jload Actions Workflow
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+
+  tests:
+    name: Running Units tests
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Install
+        run: mvn install
+        
+      - name: Test
+        run: mvn Test
