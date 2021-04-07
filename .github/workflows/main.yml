@@ -26,4 +26,4 @@ jobs:
         run: mvn install
         
       - name: Test
-        run: mvn Test
+        run: mvn test
