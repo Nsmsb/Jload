@@ -13,5 +13,21 @@ public class Jload implements DataAnalyser {
     public void insert(List row) {
 
     }
+
+    public void deleteRow(int index) {
+
+    }
+
+    public List getColumns(String key) {
+        return null;
+    }
+
+    public void addColumns(String key) {
+
+    }
+
+    public void deleteColumns(String key) {
+
+    }
     // TODO: impliment Jloader
 }
