@@ -28,7 +28,7 @@ public class Column<T>{
      * @return the index th value
      * @throws IndexOutOfBoundsException if index is out Of range
      */
-    T getAt(int index) throws IndexOutOfBoundsException {
+    public T getAt(int index) throws IndexOutOfBoundsException {
         return values.get(index);
     }
 
