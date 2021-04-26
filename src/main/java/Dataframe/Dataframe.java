@@ -2,9 +2,12 @@ package Dataframe;
 
 import utils.DefineType;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Dataframe class to represent a DataFrame from a 2 dimensions table or a CSV File
@@ -16,6 +19,7 @@ public class Dataframe {
 
     /**
      * Create a Dataframe from a 2 dimensions table
+     * @param tableData representation of data in a 2 dimensions table
      */
     public Dataframe(String[][] tableData){
         this.nbRows = tableData.length - 1;
@@ -56,9 +60,71 @@ public class Dataframe {
 
     /**
      * Create a Dataframe from a CSV File
+     * @param path the path of the CSV File
      */
-    public Dataframe(String path){
+    public Dataframe(String path) throws FileNotFoundException {
+        this.nbRows = 0;
+        FileInputStream file;
+        Scanner sc;
+        try {
+           file=new FileInputStream(path);
+           sc =new Scanner(file);
+        }catch (FileNotFoundException e){
+            throw e;
+        }
 
+        String Currentline;
+        String[] columnsName = null;
+        List[] data = null;
+        if(sc.hasNextLine()){
+            Currentline = sc.nextLine();
+            columnsName = Currentline.split(",");
+            data = new List[columnsName.length];
+        }
+
+        if(sc.hasNextLine()){
+            Currentline = sc.nextLine();
+            String[] CurrentlineTab = Currentline.split(",");
+            for (int i=0;i<data.length;i++){
+
+                boolean isInt = DefineType.isInt(CurrentlineTab[i]);
+                if(isInt){
+                    data[i]  = new ArrayList<Integer>();
+                    data[i].add(Integer.parseInt(CurrentlineTab[i]));
+                }else{
+                    data[i]  = new ArrayList<String>();
+                    data[i].add(CurrentlineTab[i]);
+                }
+            }
+            this.nbRows ++;
+        }
+
+        while(sc.hasNextLine())
+        {
+            Currentline = sc.nextLine();
+            String[] CurrentlineTab = Currentline.split(",");
+
+            for (int i=0;i<data.length;i++){
+                if(data[i].get(0) instanceof Integer){
+                    data[i].add(Integer.parseInt(CurrentlineTab[i]));
+                }else{
+                    data[i].add(CurrentlineTab[i]);
+                }
+            }
+            this.nbRows ++;
+        }
+        content = new ArrayList<>();
+
+        if(this.nbRows ==0){
+            for (int i=0;i<data.length;i++) {
+                this.content.add(new Column(columnsName[i]));
+            }
+        }else{
+            for (int i=0;i<data.length;i++) {
+                this.content.add(new Column(columnsName[i],data[i]));
+            }
+        }
+        sc.close();
     }
 
     /**
@@ -93,6 +159,10 @@ public class Dataframe {
         return this.content.size();
     }
 
+    /**
+     *
+     * @return List<String> list contenant le nom de chaque column
+     */
     public List<String> getLabels() {
         List<String> res = new ArrayList<>();
 
@@ -103,20 +173,38 @@ public class Dataframe {
         return res;
     }
 
+    /**
+     *
+     * @return List<Column> the content of the dataFrame
+     */
     public List<Column> getContent() {
         return content;
     }
 
-    public void setContent(List<Column> content) {
-        this.content = content;
-    }
-
+    /**
+     *  Show the 5 first rows of the dataFrame
+     */
     public void showFiveFirst(){
         int max = 5;
         if(content.size() > 0 && content.get(0).getSize() > 0 && content.get(0).getSize() < 5){
             max = content.get(0).getSize();
         }
         for (int i = 0;i<max;i++){
+            for (int j=0;j<content.size();j++){
+                Column c = content.get(j);
+                System.out.print(c.getAt(i)+";");
+            }
+            System.out.println();
+        }
+    }
+
+    /**
+     *  Show the 5 last rows of the dataFrame
+     */
+    public void showFiveLast(){
+        int max = Math.max(0,content.get(0).getSize()- 5);
+        System.out.println(max);
+        for (int i = max;i<content.get(0).getSize();i++){
             for (int j=0;j<content.size();j++){
                 Column c = content.get(j);
                 System.out.print(c.getAt(i)+";");
