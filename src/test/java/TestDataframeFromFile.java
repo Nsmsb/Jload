@@ -4,6 +4,8 @@ import org.junit.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
+
 import Dataframe.Column;
 
 import static org.junit.Assert.assertTrue;
@@ -68,6 +70,21 @@ public class TestDataframeFromFile {
     public void TestSHowFiveLast() {
         System.out.println("Last FIVE");
         dataframe.showFiveLast();
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void TestGetRowError() throws IndexOutOfBoundsException {
+        dataframe.getRow(555);
+    }
+
+
+    @Test
+    public void TestGetRow() {
+        List<String> res = dataframe.getRow(3);
+        assertTrue("junie@example.com match", res.get(0).equals("junie@example.com"));
+        assertTrue("jJunie match", res.get(1).equals("Junie"));
+        assertTrue(res.get(2)+" match", res.get(2).equals("682145672"));
+
     }
 
 }

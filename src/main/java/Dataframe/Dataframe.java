@@ -144,6 +144,23 @@ public class Dataframe {
     }
 
     /**
+     * @param index the position of the column to return
+     * @return List of String that represent the Row in index position, Exception if index out of bounds
+     */
+    public List<String> getRow(int index) throws IndexOutOfBoundsException {
+        ArrayList<String> res = new ArrayList<>();
+        try {
+            for (Column c:this.content) {
+                res.add(""+c.getAt(index));
+            }
+
+        }catch (IndexOutOfBoundsException e){
+            throw e;
+        }
+        return res;
+    }
+
+    /**
      *
      * @return int return the number of rows in the Dataframe
      */
