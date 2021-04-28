@@ -1,3 +1,5 @@
-DataAnalyser.class
-JdataFrame.class
+Dataframe/Dataframe.class
 Jload.class
+Dataframe/Column.class
+DataAnalyser.class
+utils/DefineType.class
