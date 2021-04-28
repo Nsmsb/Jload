@@ -1,4 +1,6 @@
 [![GitHub license](https://img.shields.io/github/license/Nsmsb/Jload)](https://github.com/Nsmsb/Jload/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/Nsmsb/Jload)](https://github.com/Nsmsb/Jload/issues)
+
 
 <h1 align=center> Projet DevOps  : Une bibliothèque d’analyse de données en Java (Jload).</h1>
 
