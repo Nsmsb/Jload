@@ -54,3 +54,12 @@ Ce project a été une occasion de mettre en oeuvre toutes les connaissances acq
 La mise en place des tests et de la pipeline d'intégration, dans les premières phases du projets, permet d'avancer très rapidement, et d'avoir une version stable et fonctionnelle après chaque fonctionnalité implémentée.   
 
 
+## Contribution & issues 
+### Issue
+S'il vous plaît si vous avez un problème, ouvrez un problème et fournissez des captures d'écran et / ou du code.
+
+### Contribution
+Lorsque vous contribuez à ce référentiel, veuillez d'abord discuter de la modification que vous souhaitez apporter via un problème, un e-mail ou toute autre méthode avec les propriétaires de ce référentiel avant d'effectuer une modification.
+
+Veuillez noter que nous suivons le processus de développement de gitflow, veuillez le suivre dans toutes vos interactions avec le projet.
+
