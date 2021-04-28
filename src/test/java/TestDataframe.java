@@ -1,4 +1,3 @@
-
 import Dataframe.Dataframe;
 import Dataframe.Column;
 import org.junit.*;
@@ -36,5 +35,3 @@ public class TestDataframe {
         System.out.println("----------------------------------------");
 
     }
-
-}
