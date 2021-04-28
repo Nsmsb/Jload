@@ -10,9 +10,10 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Dataframe class to represent a DataFrame from a 2 dimensions table or a CSV File
+ * This class represents a Dataframe object
+ *
+ * @author walid BOUKRIS
  */
-
 public class Dataframe {
     private List<Column> content;
     private int nbRows;
@@ -132,7 +133,15 @@ public class Dataframe {
      * @return Column the content that represents the label, Exception if it doesn't exist
      */
     public Column getColumn(String label) throws IOException {
-        return null;
+        List<String> labels = getLabels();
+        int index = 0;
+        for (String l: labels) {
+            if(l.equals(label)){
+                return this.content.get(index);
+            }
+            index ++;
+        }
+        throw new IOException();
     }
 
     /**
@@ -185,7 +194,7 @@ public class Dataframe {
 
         for (int i = 0; i< this.content.size();i++){
             Column c = this.content.get(i);
-            // res.add(c.getName()); A decommenter apres modif dans Column
+            res.add(c.getName());
         }
         return res;
     }
@@ -229,6 +238,9 @@ public class Dataframe {
         }
     }
 
+    /**
+     *  Show the All rows of the dataFrame
+     */
     public void showAll(){
         for (int i = 0;i<content.get(0).getSize();i++){
             for (int j=0;j<content.size();j++){
@@ -240,6 +252,9 @@ public class Dataframe {
     }
 
 
+    /**
+     *  Show rows of the dataFrame between i1 and i2
+     */
     public void showBetween(int i1, int i2){
         if(i2<i1 || i1 < 0 || i2 < 0 || i2>content.get(0).getSize()){
             return;

@@ -106,7 +106,37 @@ public class TestDataframeFromFile {
         System.out.println("---------  SHOW Entre 2 et 5  ---------");
         dataframe.showBetween(2,5);
         System.out.println("---------------------------------------");
+    }
+
+    @Test
+    public void TestGetLabels(){
+        List<String> labels = dataframe.getLabels();
+
+        assertTrue("Label 1 match", labels.get(0).equals("EMAIL"));
+        assertTrue("Label 2 match", labels.get(1).equals("FIRSTNAME"));
+        assertTrue("Label 3 match", labels.get(2).equals("PHONE"));
+        assertTrue("Label 4 match", labels.get(3).equals("CREATION_DATE"));
+        assertTrue("Label 5 match", labels.get(4).equals("GENDER"));
 
     }
+
+
+    @Test
+    public void TestGetColumnByLabel() throws IOException {
+        List<String> labels = dataframe.getLabels();
+
+        for(int i=0;i<labels.size();i++){
+            Column columnByLabel = dataframe.getColumn(labels.get(i));
+            Column columnByIndex = dataframe.getColumn(i);
+
+            assertTrue("Results "+i+" match", columnByIndex.equals(columnByLabel));
+        }
+    }
+
+    @Test(expected = IOException.class)
+    public void TestGetColumnByLabelException() throws IOException {
+        dataframe.getColumn("Bad Label");
+    }
+
 
 }

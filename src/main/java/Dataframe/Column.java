@@ -33,6 +33,14 @@ public class Column<T>{
     }
 
     /**
+     * get name of the column
+     * @return the name of the column
+     */
+    public String getName() {
+        return this.name;
+    }
+
+    /**
      * insert a new value to the colunm
      * @param element the new value
      */
