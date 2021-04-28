@@ -1,4 +1,6 @@
- <h1 align=center> Projet DevOps  : Une bibliothèque d’analyse de données en Java (Jload).</h1>
+[![GitHub license](https://img.shields.io/github/license/Nsmsb/Jload)](https://github.com/Nsmsb/Jload/blob/main/LICENSE)
+
+<h1 align=center> Projet DevOps  : Une bibliothèque d’analyse de données en Java (Jload).</h1>
 
 
 ## Préambule
