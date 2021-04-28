@@ -23,8 +23,8 @@ public class Column<T>{
     // methodes
 
     /**
-     * get Name of collumn
-     * @return
+     * get name of the column
+     * @return the name of the column
      */
     public String getName() {
         return name;
@@ -38,14 +38,6 @@ public class Column<T>{
      */
     public T getAt(int index) throws IndexOutOfBoundsException {
         return values.get(index);
-    }
-
-    /**
-     * get name of the column
-     * @return the name of the column
-     */
-    public String getName() {
-        return this.name;
     }
 
     /**
