@@ -11,12 +11,12 @@ L’objectif de ce projet est d'implémenter une sous-partie des fonctionnalité
 ### 1- Création d'un Dataframe
 Cette bibliotèque permet d'instancier un Dataframe de 2 manières différentes :
 
-- Création d'un Dataframe à partir d'une matrice (String[][]):
-La première ligne de cette matrice représente les noms de chaque colonne.
+- Création d'un Dataframe à partir d'une matrice (String[][]):<br />
+La première ligne de cette matrice représente les noms de chaque colonne.<br />
 Les autres lignes de la matrice représentent les donneés de la ligne (index-1), ou index est la ligne courante!
 
-- Création d'un dataframe à partir d'un fichier csv:
-Le fichier csv doit contenir en première ligne les noms de chaque colonne.
+- Création d'un dataframe à partir d'un fichier csv:<br />
+Le fichier csv doit contenir en première ligne les noms de chaque colonne.<br />
 un fichier csv est disponible dans le répertoire `src/test/ressources/exemple.csv`.   
 
 **Attention** : Toutes les colonnes doivent etre de la meme tailles, c'est a dire contenir le meme nombre d'elements.
