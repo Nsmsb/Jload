@@ -12,7 +12,7 @@ public class TestDataframe {
 
     @Before
     public void setUp() throws Exception {
-        String[][] list = new String[][] {{"prenom","ville","age"},{"walid","SMH","23"},{"nassim","Grenoble","23"},{"axel","Toulouse","20"},{"marion","Paris","20"}};
+        String[][] list = new String[][]{{"prenom", "ville", "age"}, {"walid", "SMH", "23"}, {"nassim", "Grenoble", "23"}, {"axel", "Toulouse", "20"}, {"marion", "Paris", "20"}};
         dataframe = new Dataframe(list);
     }
 
@@ -33,5 +33,5 @@ public class TestDataframe {
         System.out.println("------------- First FIVE 1 -------------");
         dataframe.showFiveFirst();
         System.out.println("----------------------------------------");
-
     }
+}
