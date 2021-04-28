@@ -45,7 +45,10 @@ public class TestDataframeFromFile {
 
     @Test
     public void TestSHowFiveFirst() {
+        System.out.println("------------- First FIVE -------------");
         dataframe.showFiveFirst();
+        System.out.println("-------------------------------------");
+
     }
 
     @Test
@@ -68,8 +71,10 @@ public class TestDataframeFromFile {
 
     @Test
     public void TestSHowFiveLast() {
-        System.out.println("Last FIVE");
+        System.out.println("------------- Last FIVE -------------");
         dataframe.showFiveLast();
+        System.out.println("-------------------------------------");
+
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
@@ -84,6 +89,23 @@ public class TestDataframeFromFile {
         assertTrue("junie@example.com match", res.get(0).equals("junie@example.com"));
         assertTrue("jJunie match", res.get(1).equals("Junie"));
         assertTrue(res.get(2)+" match", res.get(2).equals("682145672"));
+    }
+
+    @Test
+    public void TestSHowAll() {
+        System.out.println("---------  SHOW ALL  ---------");
+        dataframe.showAll();
+        System.out.println("------------------------------");
+
+    }
+
+
+
+    @Test
+    public void TestShowBetween() {
+        System.out.println("---------  SHOW Entre 2 et 5  ---------");
+        dataframe.showBetween(2,5);
+        System.out.println("---------------------------------------");
 
     }
 

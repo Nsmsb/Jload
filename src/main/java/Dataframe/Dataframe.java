@@ -220,7 +220,6 @@ public class Dataframe {
      */
     public void showFiveLast(){
         int max = Math.max(0,content.get(0).getSize()- 5);
-        System.out.println(max);
         for (int i = max;i<content.get(0).getSize();i++){
             for (int j=0;j<content.size();j++){
                 Column c = content.get(j);
@@ -228,5 +227,31 @@ public class Dataframe {
             }
             System.out.println();
         }
+    }
+
+    public void showAll(){
+        for (int i = 0;i<content.get(0).getSize();i++){
+            for (int j=0;j<content.size();j++){
+                Column c = content.get(j);
+                System.out.print(c.getAt(i)+";");
+            }
+            System.out.println();
+        }
+    }
+
+
+    public void showBetween(int i1, int i2){
+        if(i2<i1 || i1 < 0 || i2 < 0 || i2>content.get(0).getSize()){
+            return;
+        }
+        for (int i = i1;i<i2;i++){
+            for (int j=0;j<content.size();j++){
+                Column c = content.get(j);
+                System.out.print(c.getAt(i)+";");
+            }
+            System.out.println();
+        }
+
+
     }
 }
