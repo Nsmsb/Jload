@@ -1,15 +1,16 @@
 package Dataframe;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * Dataframe class to represent a DataFrame from a 2 dimensions table or a CSV File
  */
 
-public class Dataframe {
+public class Dataframe<T> {
     private List<String> labels;
-    private List<Column> content;
+    private HashMap<String, List<T>> content;
     private int nbRows;
 
     /**
@@ -63,14 +64,16 @@ public class Dataframe {
     }
 
     public List<Column> getContent() {
-        return content;
+        return null;
     }
 
     public void setLabels(List<String> labels) {
         this.labels = labels;
     }
 
+    /*
     public void setContent(List<Column> content) {
         this.content = content;
     }
+     */
 }

@@ -23,12 +23,20 @@ public class Column<T>{
     // methodes
 
     /**
+     * get Name of collumn
+     * @return
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
      * get a value in the column
      * @param index index of the value (row in DataFrame)
      * @return the index th value
      * @throws IndexOutOfBoundsException if index is out Of range
      */
-    T getAt(int index) throws IndexOutOfBoundsException {
+    public T getAt(int index) throws IndexOutOfBoundsException {
         return values.get(index);
     }
 
@@ -62,7 +70,7 @@ public class Column<T>{
      * check if a column is empty
      * @return True if the column is empty
      */
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return values.isEmpty();
     }
 
